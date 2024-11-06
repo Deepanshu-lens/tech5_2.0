@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "types": ["svelte"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["src/components/*"]
     }
   }
 }
