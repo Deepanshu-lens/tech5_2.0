@@ -8,6 +8,7 @@
 
   const getInitialCameras = async (nodeId: string) => {
     try {
+      pb.autoCancellation(false);
       const localCameras = await pb.collection("camera").getFullList<Camera>({
         fields: "id,name,url,subUrl,save",
         filter: `node.id ?= "${nodeId}"`,

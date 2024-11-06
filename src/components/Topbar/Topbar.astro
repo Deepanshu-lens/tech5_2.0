@@ -52,8 +52,9 @@ const navLinks = [
       {
         navLinks.map((link) => (
           <button
+          disabled={link?.href!=="/" && link?.href!=="/playback" && link?.href!=="/configuration"}
             data-href={link.href}
-            class={`text-base transition-all px-3 py-2 rounded-md 
+            class={`disabled:cursor-not-allowed text-base transition-all px-3 py-2 rounded-md 
                     ${
                       Astro.url.pathname === link.href
                         ? "font-black text-[#015A62]"

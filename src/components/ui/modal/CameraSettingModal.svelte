@@ -125,12 +125,12 @@
             >
               <Pipette size={16} class="mr-2" />Line Crossing
             </TabsTrigger>
-            <TabsTrigger
+            <!-- <TabsTrigger
               value="priority"
               class="w-full flex items-center justify-start dark:hover:bg-neutral-700"
             >
               <Siren size={16} class="mr-2" />Priority
-            </TabsTrigger>
+            </TabsTrigger> -->
             <TabsTrigger
               value="motion-sensitivity"
               class="w-full flex items-center justify-start dark:hover:bg-neutral-700"
@@ -248,6 +248,34 @@
             </div>
           </TabsContent>
 
+          <!-- Running detection -->
+          <TabsContent value="running-detection">
+            <div class="space-y-4 w-full">
+              <div
+                class="flex items-center justify-between p-2 gap-x-[23rem] border-b pb-2"
+              >
+                <Label class="text-nowrap">Running Detection</Label>
+                <Switch bind:checked={face} />
+              </div>
+              {#if face}
+                <div>
+                  <Label>Running Detection Threshold</Label>
+                  <p class="text-sm text-muted-foreground mt-1 mb-4">
+                    Adjust the threshold to accommodate different running speeds
+                  </p>
+                  <Slider
+                    min={0}
+                    max={100}
+                    step={1}
+                    value={[faceDetectionThreshold * 100]}
+                    onValueChange={(e) => (faceDetectionThreshold = e[0] / 100)}
+                    class="w-[60%]"
+                  />
+                </div>
+              {/if}
+            </div>
+          </TabsContent>
+
           <!-- intrusion detection -->
           <TabsContent value="intrusion-detection">
             <div class="space-y-4 w-full">
@@ -306,13 +334,13 @@
               <div>
                 {#if lineCrossing}
                   <div class="">
-                    <div class="my-3">Select mode of Line Crossing</div>
+                    <!-- <div class="my-3">Select mode of Line Crossing</div> -->
                     <div class="flex-col gap-y-6 px-3">
                       <div>
-                        <Label>Face Detection Threshold</Label>
+                        <Label>Line Detection Threshold</Label>
                         <p class="text-sm text-muted-foreground mt-1 mb-4">
-                          Adjust the threshold to accomodate smaller or larger
-                          faces
+                          Adjust the threshold to accommodate smaller or larger
+                          objects crossing the line
                         </p>
                         <Slider
                           min={0}
@@ -321,38 +349,6 @@
                           value={[faceDetectionThreshold * 100]}
                           onValueChange={(e) =>
                             (faceDetectionThreshold = e[0] / 100)}
-                          class="w-[60%]"
-                        />
-                      </div>
-                      <div>
-                        <Label>Face Search Threshold</Label>
-                        <p class="text-sm text-muted-foreground mt-1 mb-4">
-                          Adjust the threshold to accomodate smaller or larger
-                          faces
-                        </p>
-                        <Slider
-                          min={0}
-                          max={100}
-                          step={1}
-                          value={[faceSearchThreshold * 100]}
-                          onValueChange={(e) =>
-                            (faceSearchThreshold = e[0] / 100)}
-                          class="w-[60%]"
-                        />
-                      </div>
-                      <div>
-                        <Label>Face Search Threshold</Label>
-                        <p class="text-sm text-muted-foreground mt-1 mb-4">
-                          Adjust the threshold to accomodate smaller or larger
-                          faces
-                        </p>
-                        <Slider
-                          min={0}
-                          max={100}
-                          step={1}
-                          value={[faceSearchThreshold * 100]}
-                          onValueChange={(e) =>
-                            (faceSearchThreshold = e[0] / 100)}
                           class="w-[60%]"
                         />
                       </div>
