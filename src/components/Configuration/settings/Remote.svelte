@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let networkStatus = navigator.onLine;
+  let networkStatus = true;
 
   const checkNetworkStatus = () => {
-    networkStatus = navigator.onLine;
+    networkStatus = true;
   };
 
   onMount(() => {

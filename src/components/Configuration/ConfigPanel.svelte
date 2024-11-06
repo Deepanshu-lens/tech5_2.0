@@ -34,7 +34,7 @@ import { writable } from "svelte/store";
     search = searchParams.get("section");
     if (search === null) {
       searchParams.set("section", "Remote");
-      history.replaceState(null, "", `${location.pathname}?${searchParams}`);
+      window.history.replaceState(null, "", `${location.pathname}?${searchParams}`);
       search = "Remote";
     }
   }

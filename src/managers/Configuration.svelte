@@ -15,7 +15,7 @@
   import Logout from "@/components/configuration/Logout.svelte";
   import { writable } from "svelte/store";
   const user: User = getContext("user");
-  export let data: PageServerData;
+//   export let data: PageServerData;
   const session = data?.session;
   let nodes: Node[] = [];
 
