@@ -1,19 +1,10 @@
 <script lang="ts">
-  import AddDevice from "@/components/configuration/AddDevice.svelte";
   import PocketBase from "pocketbase";
-  import type { PageServerData } from "./$types";
   import { getContext, onDestroy, onMount } from "svelte";
 //   import ConfigPanel from "@/components/configuration/ConfigPanel.svelte";
   import ConfigPanel from "../../src/components/Configuration/ConfigPanel.svelte";
   import type { Node, User, Camera } from "@/types";
   import { selectedNode } from "@/stores";
-  import { ChevronLeft, ChevronRight } from "lucide-svelte";
-  import Configuration from "../../src/components/Configuration/Configuration.svelte";
-  import Subscription from "../../src/components/Configuration/Subscription.svelte";
-  import ContactUs from "../../src/components/Configuration/ContactUs.svelte";
-  import HelpCenter from "../../src/components/Configuration/HelpCenter.svelte";
-  import About from "../../src/components/Configuration/About.svelte";
-  import Logout from "../../src/components/Configuration/Logout.svelte";
   import { writable } from "svelte/store";
   const user: User = getContext("user");
 //   export let data: PageServerData;
